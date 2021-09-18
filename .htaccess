@@ -1,0 +1,4 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /php_tutorial/gestion_conge_php/
+RewriteRule ^(.*)$ public/$1
