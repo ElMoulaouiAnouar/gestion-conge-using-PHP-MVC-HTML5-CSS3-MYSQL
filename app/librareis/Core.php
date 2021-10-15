@@ -1,8 +1,8 @@
 <?php
 class Core{
 
-    protected $currentController = 'Home';
-    protected $currentMehod = 'index';
+    protected $currentController = 'UserController';
+    protected $currentMehod = 'login';
     protected $params = [];
 
 

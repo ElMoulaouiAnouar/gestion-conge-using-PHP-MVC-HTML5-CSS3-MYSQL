@@ -1,62 +1,43 @@
 <?php
 class Database{
-
-    private $db_name = DB_NAME;
+    
+    private $db_name = 'gestion_conge_php';
     private $db_host = DB_HOST;
     private $db_username = DB_USERNAME;
     private $db_password = DB_PASSWORD;
     private $db_charset = DB_CHARSET;
-    
-    private $statment = null;
-    private $cnx = null;
 
-    public function __construct()
-    {
-        $this->cnx = new PDO("mysql:host=$this->db_host;dbaname=$this->db_name;charset=$this->db_charset;",$this->db_username,$this->db_password);
-        $this->cnx->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    private $statement = null;
+    private $provider = null;
+
+    public function __construct(){
+        $this->provider = new PDO("mysql:host=$this->db_host;dbname=$this->db_name;charset=$this->db_charset;",$this->db_username,$this->db_password);
+        $this->provider->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $this->provider->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+        $this->provider->setAttribute(PDO::ATTR_CASE,PDO::CASE_LOWER);
+        $this->provider->setAttribute(PDO::ATTR_PERSISTENT,true);
     }
-
-
 
     public function query($sql){
-        $this->statement = $this->cnx->prepare($sql);
+        $this->statement = $this->provider->prepare($sql);
     }
-
-
 
     public function Execute($params = []){
-        if(isset($params)){
-            return $this->statement->execute($params);
+        if(is_null($params)){
+            $this->statement->execute();
         }
         else{
-            return $this->statement->execute();
+            $this->statement->execute($params);
         }
     }
 
-
-    public function DataResult($params = []){
-        if(isset($params)){
-            $this->Execute($params);
-        }
-        else{
-            $this->Execute();
-        }
-        return $this->statement->fetchAll(PDO::FETCH_OBJ);  
+    public function DataResult(){
+        //$this->Execute() ? is_null($params) : $this->Execute($params); 
+        return $this->statement->fetchAll();
     }
 
-    public function SingleResult($param = []){
-        if(isset($param)){
-            $this->Execute($param);
-        }
-        else{
-            $this->Execute();
-        }
-        return $this->statement->fetch(PDO::FETCH_OBJ);  
-    }
-
-    public function RowCount(){
-        $this->Execute();
-        return $this->rowCount();
+    public function Single(){
+        return $this->statement->fetch();
     }
 
 }

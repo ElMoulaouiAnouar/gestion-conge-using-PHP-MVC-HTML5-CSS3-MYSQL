@@ -7,6 +7,7 @@ class Controller{
     }
 
     public function view($view,$data = []){
+        $view =  str_replace('.','/',$view);
         if(file_exists('../app/Views/'.$view.'.php')){
             require '../app/Views/'.$view.'.php';
         }
