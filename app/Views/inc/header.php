@@ -50,7 +50,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link"  href="#">Accuiel</a>
+                        <a class="nav-link"  href="<?php echo BASE_URL ?>home/index">Accuiel</a>
                       </li>
                       <li class="nav-item" id="tt">
                         <a class="nav-link"  href="#">ListEmploye</a>

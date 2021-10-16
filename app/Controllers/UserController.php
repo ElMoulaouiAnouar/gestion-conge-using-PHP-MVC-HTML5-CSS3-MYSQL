@@ -26,6 +26,7 @@ class UserController extends Controller{
         }
         else{
             session::set("faild",'login or password inccorrect');
+            redirect::to('Auth/index');
         }
     }
 

@@ -30,9 +30,10 @@
                 <div class="card-header">
                     <div class="card-title">
                         <p class="h5 text-center">Login</p>
-                    </div>
+                    </div>             
                 </div>
-                <div class="card-body">
+                <div class="card-bodsy">
+                <?php include '../app/Views/inc/alert.php';?>
                     <form method="POST" action="">
                         <div class="m-1 mb-2">
                            <div class="input-group">

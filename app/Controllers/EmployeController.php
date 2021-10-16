@@ -11,4 +11,9 @@ class EmployeController extends Controller{
     public function create(){
         $this->view('employes.create');
     }
+    
+    public function edit($id){
+        $this->view('employes.edit',['id'=>$id]);
+    }
+    
 }
