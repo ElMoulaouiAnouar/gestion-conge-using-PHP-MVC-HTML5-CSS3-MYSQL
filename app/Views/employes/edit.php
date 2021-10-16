@@ -1,5 +1,6 @@
 <?php
-    print_r($data);
+$userController = new UserController;
+$user = $userController->getUser($data['id']);
 ?>
 <div class="container">
     <div class="row">

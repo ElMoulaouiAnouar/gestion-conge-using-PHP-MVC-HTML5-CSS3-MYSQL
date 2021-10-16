@@ -34,8 +34,6 @@ class UserController extends Controller{
         $user =  $this->user_model->getUser($id);
         if($user)
             return $user;
-        else
-            die('can not user');
     }
     
 

@@ -9,11 +9,23 @@ class EmployeController extends Controller{
     }
 
     public function create(){
-        $this->view('employes.create');
+        if(isset($_SESSION['user_id'])){
+            $this->view('employes.create');
+        }
+        else{
+            redirect::to('user/index');
+        }
     }
     
     public function edit($id){
-        $this->view('employes.edit',['id'=>$id]);
+        if(isset($_SESSION['user_id'])){
+            $this->view('employes.edit',['id'=>$id]);
+        }
+        else{
+            redirect::to('user/index');
+        }
     }
+
+    
     
 }

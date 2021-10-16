@@ -1,4 +1,7 @@
 <?php 
+if(isset($_SESSION['user_id'])){
+    redirect::to('home/index');
+}
     $data = Validation::$data;
      //instance obgect from class validation
      $validation = new Validation();
