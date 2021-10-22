@@ -1,5 +1,11 @@
 
+<?php 
+$file_name = explode('.',basename(__FILE__))[0];
 
+$employeController = new EmployeController();
+$validation = new Validation();
+$user = $employeController->store($validation);
+?>
 
 <div class="container">
     <div class="row">

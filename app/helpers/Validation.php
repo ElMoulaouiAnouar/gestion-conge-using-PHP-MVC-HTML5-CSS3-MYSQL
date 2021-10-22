@@ -55,9 +55,9 @@
                 }
                 break;
             case 'chaine' : 
-                if(!preg_match("/^[a-zA-Z]+$/i",$value)){
+                if(!preg_match("/^([a-zA-Z]\s?)+$/i",$value)){
                    // session::Set($key,"enter chine");
-                    return 'enter chine';
+                    return 'chaine inccorrect';
                 }
                 break;
             case 'email':
@@ -95,22 +95,42 @@
                      }
                  }
                 break;
+            case 'tel': 
+                if(!preg_match('/^[0-9]{10}$/i',$value)){
+                    return 'tel inccorect';
+                }
+                break;
+            case 'password':
+                if(!preg_match('/^[a-zA-Z]{6,30}$/i',$value)){
+                    return 'Password Container Between 6 and 30 caracter';
+                }
+                break;
+            case 'date': 
+                if(date('Y') < ((int)(explode('/',$value)[0])+$value_Typevalidation)){
+                    return 'date inferier date currnet';
+                }
+                break;
         }
     }
 
    public function DisplayError($key){
        //check if array errors not null or exists
        if(isset($this->errors)){
-           //boocle in array errors
-        for ($i=0; $i < count($this->errors[$key]) ; $i++) { 
-            //check if error index $i if null contunie else retunr error
-            if(is_null($this->errors[$key][$i])){
-                continue;
+           //check if index key exists in array errors
+            if(isset($this->errors[$key])){
+                //boocle in array errors
+                for ($i=0; $i < count($this->errors[$key]) ; $i++) { 
+                    //check if error index $i if null contunie else retunr error
+                    if(is_null($this->errors[$key][$i])){
+                        continue;
+                    }
+                    else{
+                         return $this->errors[$key][$i];
+                    }
+                }
             }
-            else{
-                 return $this->errors[$key][$i];
-            }
-        }
+            else
+                return '';
        }
        else{
             return '';

@@ -11,31 +11,31 @@
                   <tbody>
                     <tr>
                       <td>Nom </td>
-                      <td><?php echo $user->nom ?></td>
+                      <td><?php echo $user['nom'] ?></td>
                     </tr>
                     <tr>
                       <td>Prenom </td>
-                      <td><?php echo $user->prenom ?></td>
+                      <td><?php echo $user['prenom'] ?></td>
                     </tr>
                     <tr>
                       <td>Email </td>
-                      <td><?php echo $user->email ?></td>
+                      <td><?php echo $user['email'] ?></td>
                     </tr>
                     <tr>
                       <td>Telephone </td>
-                      <td><?php echo $user->tel ?></td>
+                      <td><?php echo $user['tel'] ?></td>
                     </tr>
                     <tr>
                       <td>Gander </td>
-                      <td><?php echo  $user->gander == 1 ? 'male' : 'fammale' ?></td>
+                      <td><?php echo  $user['gander'] == 1 ? 'male' : 'fammale' ?></td>
                     </tr>
                     <tr>
                       <td>Data de naissance </td>
-                      <td><?php echo $user->datenaissance ?></td>
+                      <td><?php echo $user['datenaissance'] ?></td>
                     </tr>
                     <tr>
                       <td>Type User </td>
-                      <td><?php echo $user->id_type_user == 1 ? 'admin' : 'user' ?></td>
+                      <td><?php echo $user['id_type_user'] == 1 ? 'admin' : 'user' ?></td>
                     </tr>
                   </tbody>
                 </table>

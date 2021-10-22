@@ -23,7 +23,7 @@ class User{
    public function getUser($id){
        $this->db->query("select * from employes where id_employe like :id");
        $this->db->Execute(['id'=>$id]);
-       return $this->db->Single();
+       return $this->db->FetchArray();
    }
 
 }

@@ -1,6 +1,11 @@
 <?php
-$userController = new UserController;
-$user = $userController->getUser($data['id']);
+$file_name = explode('.',basename(__FILE__))[0];
+$employeController = new EmployeController();
+//instance from class validation
+$validation = new Validation();
+//send instance to argument function uypdate  
+//$data['id'] is parameter  url example (employe/edit/1) 
+$user = $employeController->update($data['id'],$validation);
 ?>
 <div class="container">
     <div class="row">
@@ -11,7 +16,9 @@ $user = $userController->getUser($data['id']);
                 </div>
                 <div class="card-body">
                     <form action="" method="POST">
+
                         <?php  require_once '../app/Views/inc/form.php'?>
+                        
                         <div class="m-2">
                             <button type="submit" class="form-control bnt btn-outline-primary" name="btn_update">update</button>
                         </div>

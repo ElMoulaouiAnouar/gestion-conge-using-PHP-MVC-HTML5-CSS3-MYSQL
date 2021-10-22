@@ -40,4 +40,8 @@ class Database{
         return $this->statement->fetch();
     }
 
+    public function FetchArray(){
+        return $this->statement->fetch(PDO::FETCH_ASSOC);
+    }
+
 }
