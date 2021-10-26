@@ -24,10 +24,10 @@ class Database{
 
     public function Execute($params = []){
         if(is_null($params)){
-            $this->statement->execute();
+            return $this->statement->execute();
         }
         else{
-            $this->statement->execute($params);
+            return $this->statement->execute($params);
         }
     }
 
@@ -43,5 +43,6 @@ class Database{
     public function FetchArray(){
         return $this->statement->fetch(PDO::FETCH_ASSOC);
     }
+
 
 }

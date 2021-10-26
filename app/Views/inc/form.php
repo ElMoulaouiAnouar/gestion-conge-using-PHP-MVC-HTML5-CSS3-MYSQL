@@ -39,8 +39,8 @@
     <div class="input-group">
         <div class="input-group-text"><i class="fa fa-transgender"></i></div>
         <select name="gander" class="form-select">
-            <option value="1">Male</option>
-            <option value="0">famale</option>
+            <option value="1" <?php echo $user['gander']==1 ? 'selected': '' ?>>Male</option>
+            <option value="0" <?php echo $user['gander']==0 ? 'selected': '' ?>>famale</option>
         </select>
     </div>
     <div class="text-danger m-1"><?php echo isset($validation) ? $validation->DisplayError('gander') : '';  ?></div>

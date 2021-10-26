@@ -40,7 +40,7 @@
                   </tbody>
                 </table>
                 <div class="text-center">
-                  <a class="btn btn-outline-primary" href="<?php echo BASE_URL ?>employe/edit/1">Modifier</a>
+                  <a class="btn btn-outline-primary" href="<?php echo BASE_URL ?>employe/edit/<?php echo $user['id_employe'] ?>">Modifier</a>
             </div>
          </div>
 </div>

@@ -9,11 +9,25 @@ class User{
     }
 
     public function checkLogin($data){
-        $this->db->query("select * from employes WHERE email like :email and pass like :pass");
-        $this->db->Execute([':email' => $data['email'],':pass' => $data['password']]);
+        // $this->db->query("select * from employes WHERE email like :email and pass like :pass");
+        // $this->db->Execute([':email' => $data['email'],':pass' => $data['password']]);
+        // $user = $this->db->Single();
+        // if($user){
+        //     return $user;
+        // }
+        // else{
+        //     return false;
+        // }
+        $this->db->query("select * from employes WHERE email like :email");
+        $this->db->Execute([':email' => $data['email']]);
         $user = $this->db->Single();
         if($user){
-            return $user;
+            if(password_verify($data['password'],$user->pass)){
+                return $user;
+            }
+            else{
+                return false;
+            }
         }
         else{
             return false;
@@ -25,5 +39,7 @@ class User{
        $this->db->Execute(['id'=>$id]);
        return $this->db->FetchArray();
    }
+
+  
 
 }

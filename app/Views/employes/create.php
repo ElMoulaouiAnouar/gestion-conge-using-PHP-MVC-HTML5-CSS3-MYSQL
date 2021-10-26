@@ -5,6 +5,7 @@ $file_name = explode('.',basename(__FILE__))[0];
 $employeController = new EmployeController();
 $validation = new Validation();
 $user = $employeController->store($validation);
+
 ?>
 
 <div class="container">
@@ -14,6 +15,7 @@ $user = $employeController->store($validation);
                 <div class="card-header text-center">
                     Add User
                 </div>
+                <?php include '../app/Views/inc/alert.php';?>
                 <div class="card-body">
                     <form action="" method="POST">
                         <?php  require_once '../app/Views/inc/form.php'?>

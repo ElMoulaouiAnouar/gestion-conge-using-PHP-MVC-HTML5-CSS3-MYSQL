@@ -3,9 +3,9 @@ $file_name = explode('.',basename(__FILE__))[0];
 $employeController = new EmployeController();
 //instance from class validation
 $validation = new Validation();
-//send instance to argument function uypdate  
+//send instance to argument function update  
 //$data['id'] is parameter  url example (employe/edit/1) 
-$user = $employeController->update($data['id'],$validation);
+$user = $employeController->update($validation,$data['id']);
 ?>
 <div class="container">
     <div class="row">

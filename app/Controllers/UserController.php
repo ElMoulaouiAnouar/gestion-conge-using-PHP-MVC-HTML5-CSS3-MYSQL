@@ -35,6 +35,11 @@ class UserController extends Controller{
         if($user)
             return $user;
     }
+
+    public function resset(){
+       // $code = random_int(1,10).random_int(1,100).random_int(50,100);
+
+    }
     
 
 
