@@ -36,7 +36,7 @@
                         <td><?php echo $demand->etat?></td>
                         <td>
                             <a title="delete" href="<?echo BASE_URL ?>demand/destroy/<?php echo $demand->id_demande ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                            <a title="accept" href="<?echo BASE_URL ?>demand/ChangeStatus/<?php echo $demand->id_demande ?>/accepte" class="btn btn-success btn-sm"><i class="fa fa-save"></i></a>
+                            <a title="accept" href="<?echo BASE_URL ?>demand/ChangeStatus/<?php echo $demand->id_demande ?>/accepte" class="btn btn-success btn-sm"><i class="fa fa-check"></i></a>
                             <a title="refuse" href="<?echo BASE_URL ?>demand/ChangeStatus/<?php echo $demand->id_demande ?>/refuse" class="btn btn-warning btn-sm"><i class="fa fa-refresh"></i></a>
                         </td>
                         

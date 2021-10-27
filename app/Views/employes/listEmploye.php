@@ -16,7 +16,6 @@
                             <th>Email</th>
                             <th>Telephone</th>
                             <th>Gander</th>
-                            <th>Password</th>
                             <th>Operations</th>
                         </tr>
                     </thead>
@@ -28,7 +27,6 @@
                             <td><?php echo $employe->email?></td>
                             <td><?php echo $employe->tel?></td>
                             <td><?php echo $employe->gander == 1 ? 'Male' : 'Famale'?></td>
-                            <td><?php echo $employe->pass?></td>
                             <td>
                                 <a title="delete" href="<?echo BASE_URL ?>employe/destroy/<?php echo $employe->id_employe ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 <a title="edit" href="<?echo BASE_URL ?>employe/edit/<?php echo $employe->id_employe ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
@@ -44,7 +42,6 @@
                             <th>Email</th>
                             <th>Telephone</th>
                             <th>Gander</th>
-                            <th>Password</th>
                             <th>Operations</th>
                         </tr>
                     </tfoot>

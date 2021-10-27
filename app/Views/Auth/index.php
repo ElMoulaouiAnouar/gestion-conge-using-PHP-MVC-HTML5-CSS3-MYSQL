@@ -56,7 +56,7 @@ if(isset($_SESSION['user_id'])){
                             <button type="submit" class="btn btn-outline-primary form-control" name="btn_login">Login</button>
                         </div>
                         <div>
-                            <a href="<?php echo BASE_URL ?>/user/resset" style="text-decoration:none;margin-left:5px;font-size:17px">Forget Password</a>
+                            <a href="<?php echo BASE_URL ?>/user/reset" style="text-decoration:none;margin-left:5px;font-size:17px">Forgot Password</a>
                         </div>
                     </form>
                 </div>
