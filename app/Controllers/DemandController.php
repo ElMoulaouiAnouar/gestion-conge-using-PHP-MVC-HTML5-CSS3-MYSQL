@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+use SebastianBergmann\CodeUnit\FunctionUnit;
+
 class DemandController extends Controller{
 
     private $demand_model = null;
@@ -11,6 +14,8 @@ class DemandController extends Controller{
         if(isset($_SESSION['user_id']) && $_SESSION['type_user'] == 'admin'){
             $data = $this->demand_model->AllDemands($status);
             $this->view('demands.index',$data);
+            //this function to change value column notification 
+            $this->updateNotification();
         }
     }
 
@@ -86,5 +91,16 @@ class DemandController extends Controller{
      //function get total demandes with etat de demande
      public function getTotalDemands($status = ''){
          return $this->demand_model->TotalDemands($status);
+     }
+
+     //function get total notification
+     public function GetTotalNotification(){
+         return $this->demand_model->GetTotalNotification();
+     }
+
+     //function change value column notification with value 0 if click to button notification
+
+     public function updateNotification(){
+         $this->demand_model->ChangeValueColumnNotification();
      }
 }

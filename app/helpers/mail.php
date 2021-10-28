@@ -36,9 +36,9 @@ class mail{
     $mail->AltBody = '';
 
     $mail->send();
-    session::Set('success','link send verfier your email');
+    session::Set('success','link send success verfier your email');
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+         session::Set("faild","Message could not be sent.");
     }
 
     }

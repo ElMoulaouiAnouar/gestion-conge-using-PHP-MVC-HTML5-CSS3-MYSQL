@@ -8,7 +8,7 @@ class Demand{
     }
 
     public function AllDemands($status = ''){
-        $this->db->Query("SELECT d.id_demande,d.date_demande,d.date_debut,d.date_fin,d.etat,concat(e.nom,' ',e.prenom)as 'nomPrenom',e.email from demande_conge d INNER JOIN employes e ON d.id_employe=e.id_employe where etat like concat('%',:status,'%') order by d.id_demande DESC");
+        $this->db->Query("SELECT d.notification,d.id_demande,d.date_demande,d.date_debut,d.date_fin,d.etat,concat(e.nom,' ',e.prenom)as 'nomPrenom',e.email from demande_conge d INNER JOIN employes e ON d.id_employe=e.id_employe where etat like concat('%',:status,'%') order by d.id_demande DESC");
         $this->db->Execute(['status'=>$status]);
         return $this->db->DataResult();
     }
@@ -46,14 +46,14 @@ class Demand{
 
     //funciton inser damande
     public function insert($date_debut,$date_fin){
-        $this->db->Query("INSERT INTO demande_conge(date_demande,date_debut,date_fin,id_employe,etat) values(NOW(),:db,:df,:id,:etat)");
+        $this->db->Query("INSERT INTO demande_conge(date_demande,date_debut,date_fin,id_employe,etat,notification) values(NOW(),:db,:df,:id,:etat,:n)");
         if($this->db->Execute([
             'db' => $date_debut,
             'df' =>$date_fin,
             'id' => $_SESSION['user_id'],
-            'etat' => 'attend'
+            'etat' => 'attend',
+            'n' => '1'
         ])){
-            //send notification
             return true;
         }
         else{
@@ -67,4 +67,14 @@ class Demand{
         return $this->db->FetchArray();
     }
 
+    public function GetTotalNotification(){
+        $this->db->Query("SELECT COUNT(*) as total FROM demande_conge WHERE notification=1");
+        $this->db->Execute();
+        return $this->db->Single()->total;
+    }
+
+    public function ChangeValueColumnNotification(){
+        $this->db->Query("UPDATE demande_conge SET  notification=0");
+        $this->db->Execute();
+    }
 }

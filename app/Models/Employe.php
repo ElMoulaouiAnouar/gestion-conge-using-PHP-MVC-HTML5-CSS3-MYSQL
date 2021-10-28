@@ -84,6 +84,19 @@ class Employe{
         if($this->db->execute(['id'=>$id]))
             return true;
         else
+            return false;   
+    }
+
+    public function ChangePassword($nvpass,$emial){
+        $nvpass = password_hash($nvpass,PASSWORD_DEFAULT);
+        $this->db->Query('UPDATE employes set pass=:p where email=:e');
+        if($this->db->Execute([
+            'p' => $nvpass,
+            'e' => $emial
+        ])){
+            return true;
+        }
+        else
             return false;
         
     }

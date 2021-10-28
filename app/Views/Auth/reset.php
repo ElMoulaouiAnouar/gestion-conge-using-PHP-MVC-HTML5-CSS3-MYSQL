@@ -4,8 +4,9 @@
 ?>
 
 <div class="container-fluid bg-light h-100 d-flex align-items-center justify-content-center">
-        <?php require '../app/Views/inc/alert.php'?>
+    
     <div class="bg-white p-2" style="width: 390px;">
+    <?php include '../app/Views/inc/alert.php';?>
         <h3 class="text-primary text-center">Forgot Password</h3>
         <div class="text-center p-2">Enter Your Email Address To Reset Password</div>
         <div class="m-2">

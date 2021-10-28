@@ -92,10 +92,12 @@
                     <ul class="navbar-nav">
 
                         <?php if($_SESSION['type_user'] == 'admin') {?>
-                          <li class="nav-item">
-                              <a class="nav-link notification"  href="#">
+                          <li class="nav-item" title="<?php echo (new DemandController())->GetTotalNotification().' Notification'?>">
+                              <a class="nav-link notification"  href="<?php echo BASE_URL?>demand/index">
                                 <i class="fa fa-Bell" ></i>
-                                <span class="nbr_notif">0</span>
+                                <span  class="nbr_notif"><?php
+                                    echo (new DemandController())->GetTotalNotification();
+                                ?></span>
                               </a>
                             </li>
                           <?php }?>

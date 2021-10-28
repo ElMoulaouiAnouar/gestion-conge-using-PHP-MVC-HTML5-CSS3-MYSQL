@@ -16,11 +16,12 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Date Demande</th>
                         <th>Date Debut</th>
                         <th>Date Fin</th>
                         <th>Employe Demander</th>
-                        <th>Email demand</th>
+                        <th>Email Employe</th>
                         <th>Status</th>
                         <th>Operations</th>
                     </tr>
@@ -28,6 +29,7 @@
                 <tbody>
                     <?php foreach ($data as $demand):?>
                     <tr>
+                        <td><?php if($demand->notification == 1) echo '<div class="Badge bg-danger">New</div>'; ?></td>
                         <td><?php echo $demand->date_demande?></td>
                         <td><?php echo $demand->date_debut?></td>
                         <td><?php echo $demand->date_fin?></td>
@@ -45,6 +47,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th></th>
                         <th>Date Demande</th>
                         <th>Date Debut</th>
                         <th>Date Fin</th>
