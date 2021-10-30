@@ -85,7 +85,7 @@ class DemandController extends Controller{
             else{
                 session::Set("faild",'can cont change etat demande');
             }
-            redirect::To('demand/index');
+           // redirect::To('demand/index');
         }   
      }
      //function get total demandes with etat de demande
